@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home2', 'HomeController@home2')->name('home2');
+
+Route::middleware(['auth'])->namespace('Admin')->prefix('admin')->group(function(){
+    Route::resource('artigos', 'ArtigosController');
+});
