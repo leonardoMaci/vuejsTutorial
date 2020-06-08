@@ -20,6 +20,8 @@ Vue.component('panel', require('./components/Panel.vue'));
 Vue.component('box', require('./components/Box.vue'));
 Vue.component('page', require('./components/Page.vue'));
 Vue.component('table-list', require('./components/TableList.vue'));
+Vue.component('modal', require('./components/Modal.vue'));
+Vue.component('custom-form', require('./components/Form.vue'));
 
 const app = new Vue({
     el: '#app'

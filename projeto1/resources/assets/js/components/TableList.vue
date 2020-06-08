@@ -2,7 +2,7 @@
     <div>
     <div class="form-inline">
         <div class="form-group pull-right">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search" v-model="search">
             <i class="fas fa-search" aria-hidden="true"></i>
         </div>
     </div>
@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="list in list_itens">
+            <tr v-for="list in filteredList">
                 <td v-for="itens in list">{{ itens }}</td>
 
                 <td v-if="delet && token"> 
@@ -43,11 +43,20 @@
         props:['titles','list_itens','edit','delet','details','token'],
         data: function(){
             return {
-                buscar: ''
+                search: ''
             }
         },
         computed:{
-            
+            filteredList: function(){                
+                return this.list_itens.filter(response => {
+                    for(let i = 0; i < response.length; i++){
+                        if((response[i] + "").toLowerCase().indexOf(this.search.toLowerCase()) >= 0){
+                            return true;
+                        }
+                    }
+                    return false;  
+                });         
+            }   
         }
     }
 

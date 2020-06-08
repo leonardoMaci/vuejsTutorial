@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="defineColor">
+    <div v-bind:class="defineColor" v-bind:style="setMargin">
         <div class="panel-heading">{{ title }}</div>
         
         <div class="panel-body">
@@ -10,10 +10,13 @@
 
 <script>
     export default{
-        props:['title','color'],
+        props:['title','color','margin'],
         computed:{
             defineColor: function(){
                 return "panel "+ (this.color || "panel-default");
+            },
+            setMargin: function(){
+                return "margin: "+this.margin;
             }
         }
     }
@@ -48,5 +51,4 @@
     background-color:#ff0d0d;
     border-color:#ff0d0d;
 }
-
 </style>
