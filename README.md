@@ -10,6 +10,11 @@ Curso da Udemy de vue js que fiz em 06/2020
 **** banco sqlite *****
 
 - remover do php.ini a ";" antes do (extension=pdo_sqlite)
+- ajustar o .env :
+   DB_CONNECTION=sqlite
+   DB_HOST=127.0.0.1
+   DB_PORT=3306   
+- criar dentro da pastas database um arquivo com nome de (database.sqlite)
 - rodar php artisan migrate
 
 ************************
